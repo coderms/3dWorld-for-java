@@ -1,0 +1,15 @@
+# Blender v2.66 (sub 1) OBJ File: ''
+# www.blender.org
+mtllib cube.mtl
+o Cube
+v -1.000000 -1.000000 0.000000
+v 1.000000 1.000000 0.000000
+v -1.000000 1.000000 0.000000
+
+vt 0 0 0.0000
+vt 1 1 0.0000
+vt 0 1 0.0000
+
+usemtl resources/textures/checkboard.png
+
+f 1/1 3/3 2/2
