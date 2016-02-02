@@ -80,7 +80,7 @@ public class Start {
 		
 //		ObjectParser o = new ObjectParser("resources/cube.obj");
 //		ObjectParser o = new ObjectParser("resources/cubeRotated.obj");
-		ObjectParser o = new ObjectParser("resources/cubeTextured.obj");
+		ObjectParser o = new ObjectParser("resources/cubeTextured2.obj");
 //		ObjectParser o = new ObjectParser("resources/torus2.obj");
 		//ObjectParser o = new ObjectParser("resources/torus.obj");
 //		ObjectParser o = new ObjectParser("resources/monkey.obj");

@@ -1,6 +1,7 @@
 package pl.somapro.world3d;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -93,7 +94,7 @@ public class ObjectParser {
 				line = line.substring(line.indexOf(" ")+1, line.length()).trim();
 				Double y = new Double(line.substring(0, line.indexOf(" ")));
 				line = line.substring(line.indexOf(" ")+1, line.length()).trim();
-				Double z = new Double(line.substring(0, line.length()-1));
+				Double z = new Double(line.substring(0, line.length()));
 				//System.out.println("x: " + x);
 				//System.out.println("y: " + y);
 				//System.out.println("z: " + z);
@@ -103,35 +104,48 @@ public class ObjectParser {
 			} else if (p.equals("f")) {
 				line = line.substring(line.indexOf(" ")+1, line.length()).trim();
 				String v1s = line.substring(0, line.indexOf(" "));
-				String[] v1st = v1s.split("/");
+				String[] v1st = v1s.split("//");
+				
+				if (v1st.length<2) {
+					v1st = v1s.split("/");
+				}
+				
 				int v1 = 0;
 				int v1tc = 0;
 				if (v1st.length>1) {
-					v1 = new Integer(v1st[0]);
-					v1tc = new Integer(v1st[1]);
-				} else
-					v1 = new Integer(v1s);
+					v1 = new Integer(v1st[0].replaceAll("/", "").trim());
+					v1tc = new Integer(v1st[1].replaceAll("/", "").trim());
+				} else {
+						v1 = new Integer(v1s.replaceAll("/", "").trim());
+				}
+				
 				line = line.substring(line.indexOf(" ")+1, line.length()).trim();
 				String v2s = line.substring(0, line.indexOf(" "));
-				String[] v2st = v2s.split("/");
+				String[] v2st = v2s.split("//");
+				if (v2st.length<2) {
+					v2st = v2s.split("/");
+				}
 				int v2 = 0;
 				int v2tc = 0;
 				if (v2st.length>1) {
-					v2 = new Integer(v2st[0]);
-					v2tc = new Integer(v2st[1]);
+					v2 = new Integer(v2st[0].replaceAll("/", "").trim());
+					v2tc = new Integer(v2st[1].replaceAll("/", "").trim());
 				} else
-					v2 = new Integer(v2s);
+					v2 = new Integer(v2s.replaceAll("/", "").trim());
 				//int v2 = new Integer(line.substring(0, line.indexOf(" ")));
 				line = line.substring(line.indexOf(" ")+1, line.length()).trim();
 				String v3s = line.substring(0, line.length());
-				String[] v3st = v3s.split("/");
+				String[] v3st = v3s.split("//");
+				if (v3st.length<2) {
+					v3st = v3s.split("/");
+				}
 				int v3 = 0;
 				int v3tc = 0;
 				if (v3st.length>1) {
-					v3 = new Integer(v3st[0]);
-					v3tc = new Integer(v3st[1]);
+					v3 = new Integer(v3st[0].replaceAll("/", "").trim());
+					v3tc = new Integer(v3st[1].replaceAll("/", "").trim());
 				} else
-					v3 = new Integer(v3s);
+					v3 = new Integer(v3s.replaceAll("/", "").trim());
 				//System.out.println("v1: " + v1);
 				//System.out.println("v2: " + v2);
 				//System.out.println("v3: " + v3);
@@ -148,7 +162,7 @@ public class ObjectParser {
 				line = line.substring(line.indexOf(" ")+1, line.length());
 				String path  = line.substring(0, line.length()).trim();
 				
-				if (path.length()>0 && path.indexOf("None") == -1) {
+				if (path.length()>0 && new File(path).exists()) {
 					textureId++;
 					t.add(new Texture(textureId, path));
 					hasTexture = true;
