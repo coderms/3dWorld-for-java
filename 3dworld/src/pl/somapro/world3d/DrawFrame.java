@@ -7,6 +7,10 @@ import javax.swing.JFrame;
 
 public class DrawFrame extends JFrame {
 
+	/**
+	 * Serial UID
+	 */
+	private static final long serialVersionUID = 1L;
 	private int dw = 1000;
 	private int dh = 600;
 	

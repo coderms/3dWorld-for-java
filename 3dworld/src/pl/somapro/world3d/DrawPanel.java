@@ -2,23 +2,16 @@ package pl.somapro.world3d;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Insets;
-import java.awt.Panel;
 import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
 import java.awt.image.MemoryImageSource;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
 import java.util.Vector;
 
 import javax.swing.JFrame;
@@ -34,6 +27,10 @@ import pl.somapro.world3d.common.Vertex;
 
 public class DrawPanel extends JPanel {
 
+	/**
+	 * Serial UID
+	 */
+	private static final long serialVersionUID = 1L;
 	// Screen;
 	private int w;
 	private int h;
